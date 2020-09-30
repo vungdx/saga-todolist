@@ -2,6 +2,7 @@ const { ActionType } = require("./actions");
 
 const initialState = {
     todos: [],
+    todoEdit: null,
     loading: false
 }
 
@@ -63,8 +64,10 @@ const todoReducer = (state = initialState, action) => {
                 loading: false
             }
         case ActionType.EDIT_TODO_REQUEST:
+            const todoEdit= action.payload;
             return {
-                ...state
+                ...state,
+                todoEdit
             }
 
         default: return state;

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodoRequest } from '../Todo/actions';
 
 function TodoForm(props) {
     const [newTodo, setNewTodo] = useState('');
+    const todoEdit = useSelector((state) => state.todo.todoEdit);
+    console.log(todoEdit);
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
